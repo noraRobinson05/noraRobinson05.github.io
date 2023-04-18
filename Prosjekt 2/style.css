@@ -1,0 +1,260 @@
+
+body{
+    margin: 0; /*får nettsiden til å gå i kantenet*/
+    padding: 0px;
+    height: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #e2e1e1;
+    z-index: 2; /* prioriteres over canvas */
+}
+
+/*Header*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: white;
+    z-index: 3; /* prioriteres over canvas, body og main */
+    position: relative; /* plasserer seg etter sin orginale posisjon */
+    opacity: 95%;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    color: #262626;
+    text-decoration: none;
+}
+
+.navbar{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.nav-meny{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    
+}
+
+.nav-logo{
+    font-size: 2rem;
+    max-width: 15%;
+    border-radius: 50%;
+}
+
+.nav-link{ 
+    transition: 0.7s ease; /* smooth overgang når vi peker musepekeren på linkene */
+}
+
+.nav-link:hover{ /* når vi prker museperen på */
+    color: rgb(250, 0, 0); /* Når vi peker musepekeren over linkene blir det rødt */
+}
+
+.hamburger{
+    display: none; /* så vi ikke kan se den når linkene er oppe */
+    cursor: pointer; /* endrer musepekeren til en pointer */
+}
+
+.bar{
+    display: block; /*  så de står over hverandre */
+    width: 25px;
+    height: 3px;
+    margin: 5px auto; /* så de ikke er så nærme hverandre 5px på topp og bunn, og auto på høyre og venstre*/
+    -webkit-transition: all 0.3s ease-in-out; /* vet ikke hva gjør */
+    transition: all 0.3s ease-in-out;
+    background-color: #262626; /* gir fargen hvit */
+}
+
+@media(max-width: 968px){
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0; /* gjør bar nr. 2 usynelig når vi trykker på hamburgeren */
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg); /* vrir bar nr. 1  */
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg); /* vriri bar nr. 3 */
+    }
+    
+    .nav-meny{
+        position: fixed;
+        left: -100%;
+        top: 90px; /* ops ops spørr didrik */
+        gap: 0;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        background-attachment: fixed;
+    }
+
+    .nav-item{
+        margin: 16px 0;
+    }
+    .nav-meny.active{
+        left: 0;
+    }
+}
+
+
+/*Bakgrunn*/
+canvas{
+    z-index: 1; /* prioriteres nederst */
+    position: absolute; /* plasseres i forhold til parent som i dette tilfelle ikke er noe */
+}
+
+/*Main*/
+main{
+    z-index: 2; /* prioriteres over canvas */
+    position: relative; /* vil blir plasert etter sin orginale posisjon */
+
+    max-width: 100%;
+    width: 100%;
+    margin: 20px auto;
+    border: 2px ;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+}
+
+.kilder{
+    color: #262626;
+}
+
+.hovedinnhold{
+    display: flex;
+    max-width: 500px;
+    width: 95%;
+    height: 373px;
+    margin: 20px auto;
+    
+    border-radius: 10px;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#box{
+    display: flex;
+    max-width: 500px;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    opacity: 90%;
+}
+
+#box:hover{
+    width: 175px;
+    height: 175px;
+}
+
+.front{
+    
+    background-image: url(./bilder/chip_fire\ \(1\).jpg );
+    background-attachment: fixed;
+    width: 100%;
+    height: 400px;
+    background-size: cover; /* plasserer seg til hele boksen */
+    background-position: center; /* sentreres */
+
+    display: flex;
+    flex-direction: row;
+    opacity: 95%;
+    
+}
+
+.gjennomsiktig-boks{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    opacity: 50%;
+    justify-content: center;
+    
+}
+
+.overskrift{
+    font-size: 70px;
+    
+}
+
+.gjennomsiktig{
+    opacity: 100%;
+}
+
+.om_oss{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.les_mer{
+    margin: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.oppe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.valg{
+    height: 400px;
+    background-size: cover; /* plasserer seg til hele boksen */
+    background-position: center; /* sentreres */
+
+    display: flex;
+    flex-direction: row;
+    opacity: 95%;
+}
+
+.doughs{
+    display: flex;
+    flex-direction: column;
+    background-image: url(./bilder/oreo\ \(1\).jpg);
+    background-size: cover; /* plasserer seg til hele boksen */
+    background-position: center; /* sentreres */
+    justify-content: center;
+    background-color: white;
+    opacity: 95%;
+    color: white;
+}
+
+.cookies{
+    display: flex;
+    flex-direction: column;
+    background-image: url();
+    background-size: cover; /* plasserer seg til hele boksen */
+    background-position: center; /* sentreres */
+    justify-content: center;
+}

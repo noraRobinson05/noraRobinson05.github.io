@@ -1,0 +1,182 @@
+
+body{
+    margin: 0; /*får nettsiden til å gå i kantenet*/
+    padding: 0px;
+/*     height: 100%;
+ */    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #e2e1e1;
+    overflow: hidden; 
+    z-index: 2; /* prioriteres over canvas */
+}
+
+/*Header*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: white;
+    z-index: 3; /* prioriteres over canvas, body og main */
+    position: relative; /* plasserer seg etter sin orginale posisjon */
+    opacity: 95%;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    color: #262626;
+    text-decoration: none;
+}
+
+.navbar{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.nav-meny{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-logo{
+    font-size: 2rem;
+    max-width: 15%;
+    border-radius: 50%;
+}
+
+.nav-link{ 
+    transition: 0.7s ease; /* smooth overgang når vi peker musepekeren på linkene */
+}
+
+.nav-link:hover{ /* når vi prker museperen på */
+    color: rgb(250, 0, 0); /* Når vi peker musepekeren over linkene blir det rødt */
+}
+
+.hamburger{
+    display: none; /* så vi ikke kan se den når linkene er oppe */
+    cursor: pointer; /* endrer musepekeren til en pointer */
+}
+
+.bar{
+    display: block; /*  så de står over hverandre */
+    width: 25px;
+    height: 3px;
+    margin: 5px auto; /* så de ikke er så nærme hverandre 5px på topp og bunn, og auto på høyre og venstre*/
+    -webkit-transition: all 0.3s ease-in-out; /* vet ikke hva gjør */
+    transition: all 0.3s ease-in-out;
+    background-color: #262626; /* gir fargen hvit */
+}
+
+@media(max-width: 968px){
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0; /* gjør bar nr. 2 usynelig når vi trykker på hamburgeren */
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg); /* vrir bar nr. 1  */
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg); /* vriri bar nr. 3 */
+    }
+    
+    .nav-meny{
+        position: fixed;
+        left: -100%;
+        top: 100px;
+        gap: 0;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-item{
+        margin: 16px 0;
+    }
+    .nav-meny.active{
+        left: 0;
+    }
+}
+
+
+/*Bakgrunn*/
+canvas{
+    position: fixed; /* plasseres i forhold til parent som i dette tilfelle ikke er noe */
+}
+
+/*Main*/
+main{
+    position: relative; /* vil blir plasert etter sin orginale posisjon */
+
+    max-width: 500px;
+    width: 95%;
+    margin: 20px auto;
+    border: 2px ;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+}
+
+.kilder{
+    color: #262626;
+}
+
+.hovedinnhold{
+    display: flex;
+    max-width: 500px;
+    width: 95%;
+    height: 373px;
+    margin: 20px auto;
+    
+    border-radius: 10px;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#box{
+    display: flex;
+    max-width: 500px;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    opacity: 90%;
+}
+
+#box:hover{
+    width: 175px;
+    height: 175px;
+}
+
+.front{
+    background-image: url(./bilder/chip_fire\ \(1\).jpg );
+    width: 500px;
+    height: 500px;
+}
